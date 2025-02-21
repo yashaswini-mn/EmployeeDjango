@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Management System</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+padding: 20px;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+}
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+th {
+background-color: #f4f4f4;
+}
+img {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+}
+</style>
+</head>
+<body>
+{% if messages %}
+<div>
+    {% for message in messages %}
+       <div style="color: rgb(114, 176, 21);">Success</div>
+    {% endfor %}
+</div>
+{% endif %}
+<h2>Employee Management System</h2>
+<table>
+<thead>
+<tr>
+<th>Employee Name</th>
+<th>Email</th>
+<th>Phone Number</th>
+<th>Department</th>
+<th>Designation</th>
+<th>Salary</th>
+<th>Date of Hire</th>
+<th>Employement Type</th>
+<th>Address</th>
+<th>Active Status</th>
+</tr>
+</thead>
+<tbody>
+{% for employee in employees %}
+<tr>
+<td>{{ employee.id }}</td>
+<td>{{ employee.empname }}</td>
+<td>{{ employee.empemail }}</td>
+<td>{{ employee.pno }}</td>
+<td>{{ employee.department }}</td>
+<td>{{ employee.designation }}</td>
+<td>{{ employee.salary }}</td>
+<td>{{ employee.date }}</td>
+<td>{{ employee.empType }}</td>
+<td>{{ employee.address }}</td>
+<td>{{ employee.status }}</td>
+<!-- <td>{{profile_pic}}</td> -->
+ <td><a href="{% url 'update_employee' employee.pk %}">Edit</a></td>
+ <td><a href="{% url 'delete_employee' employee.pk %}">Delete</a></td>
+</tr>
+{% empty %}
+<tr>
+<td colspan="10">No Employees available</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2>Add a Employee</h2>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<label for="empname">Name:</label>
+<input type="text" name="empname" required><br><br>
+
+<label for="empemail">Email:</label>
+<input type="text" name="empemail" required><br><br>
+
+<label for="pno">Phone Number:</label>
+<input type="number" name="pno" required><br><br>
+
+<label for="department">Department:</label>
+<input type="text" name="department" required><br><br>
+
+<label for="designation">Designation:</label>
+<input type="text" name="designation" required><br><br>
+
+<label for="salary">Salary:</label>
+<input type="number" name="salary" required><br><br>
+
+<label for="date">Date:</label>
+<input type="date" name="date" required><br><br>
+
+<label for="empType">Employement Type:</label>
+<input type="text" name="empType" required><br><br>
+
+<label for="address">Address:</label>
+<textarea name="address" required></textarea><br><br>
+
+<label for="status">Status:</label>
+<input type="text" name="status" required><br><br>
+
+
+
+<!-- 
+<label for="profile_pic">Profile Picture:</label>
+<input type="file" name="profile_pic"><br><br> -->
+
+<button type="submit">Add Employee</button>
+</form>

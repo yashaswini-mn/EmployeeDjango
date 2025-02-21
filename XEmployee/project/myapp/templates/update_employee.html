@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Details</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+padding: 20px;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+}
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+th {
+background-color: #f4f4f4;
+}
+img {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+}
+</style>
+</head>
+<body>
+
+
+
+<h2>Update a Employee</h2>
+<form method="post">
+{% csrf_token %}
+<label for="name">Name:</label>
+<input type="text" name="name" value="{{ student.name }}" required><br><br>
+
+<label for="gender">Gender:</label>
+<input type="text" name="gender" value="{{ student.gender }}" required><br><br>
+
+<label for="address">Address:</label>
+<textarea name="address" value="{{ student.address }}" required></textarea><br><br>
+
+
+<label for="empname">Name:</label>
+<input type="text" name="empname" value="{{employee.empname}}" required><br><br>
+
+<label for="empemail">Email:</label>
+<input type="text" name="empemail" value="{{employee.empmail}}" required><br><br>
+
+<label for="pno">Phone Number:</label>
+<input type="number" name="pno" value="{{employee.pno}}" required><br><br>
+
+<label for="department">Department:</label>
+<input type="text" name="department" value="{{employee.department}}" required><br><br>
+
+<label for="designation">Designation:</label>
+<input type="text" name="designation" value="{{employee.designation}}" required><br><br>
+
+<label for="salary">Salary:</label>
+<input type="number" name="salary" value="{{employee.salary}}" required><br><br>
+
+<label for="date">Date:</label>
+<input type="date" name="date" value="{{employee.date}}" required><br><br>
+
+<label for="empType">Employement Type:</label>
+<input type="text" name="empType" value="{{employee.empType}}" required><br><br>
+
+<label for="address">Address:</label>
+<textarea name="address" value="{{employee.address}}" required></textarea><br><br>
+
+<label for="status">Status:</label>
+<input type="text" name="status" value="{{employee.status}}" required><br><br>
+
+<!-- 
+<label for="profile_pic">Profile Picture:</label>
+<input type="file" name="profile_pic" value="{{form.profile_pic}}"><br><br> -->
+
+<button type="submit">Add Employee</button>
+</form>
