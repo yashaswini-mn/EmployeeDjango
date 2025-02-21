@@ -30,13 +30,13 @@ def update_employee(request, pk):
         empname = request.POST.get('empname')
         empmail=request.POST.get('empmail')
         pno = request.POST.get("pno")
-        department=request.POST("department")
-        designation=request.POST("designation")
-        salary=request.POST("salary")
-        date=request.POST("date")
-        empType=request.POST("empType")
-        address=request.POST("address")
-        status=request.POST("status")
+        department=request.POST.get("department")
+        designation=request.POST.get("designation")
+        salary=request.POST.get("salary")
+        date=request.POST.get("date")
+        empType=request.POST.get("empType")
+        address=request.POST.get("address")
+        status=request.POST.get("status")
 
         employee.empname =empname
         employee.empmail=empmail
